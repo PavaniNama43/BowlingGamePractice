@@ -14,7 +14,7 @@ public class BowlingGame {
 		
 	    for (int frame = 0; frame < 10; frame++) {
 	    	
-	    	if (rolls[rollIndex] == 10)
+	    	if (isStrike(rollIndex))
 	        {
 	    		score += 10 +rolls[rollIndex+1] +rolls[rollIndex+2];
 	          	rollIndex++;
@@ -30,8 +30,11 @@ public class BowlingGame {
 	}
 	
 	private boolean isSpare(int rollIndex) {
-	    return rolls[rollIndex] +
-	           rolls[rollIndex + 1] == 10;
+	    return rolls[rollIndex] +rolls[rollIndex + 1] == 10;
 	}
+	
+	private boolean isStrike(int rollIndex) {
+	    return rolls[rollIndex] == 10;
+  }
 	
 }
