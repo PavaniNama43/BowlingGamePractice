@@ -42,16 +42,16 @@ public class BowlingGameTest {
 	@Test
 	public void testGameScoreWhenRollsAreMiss() {
 		game.roll(5);
-		game.roll(0);
-		game.roll(0);
+		rollMiss();
+		rollMiss();
 		rollPins(17,1);
+		
 		assertEquals(22, game.calculateScore());
 	}
 	
 	@Test
 	public void testGameScoreWhenOneSpare() {
-		game.roll(2);
-		game.roll(8);
+		rollSpare(2);
 		game.roll(7);
 		rollPins(17,2);
 		
@@ -61,8 +61,7 @@ public class BowlingGameTest {
 	@Test
 	public void testGameScoreWhenLastRollSpare() {
 		rollPins(18,2);
-		game.roll(5);
-		game.roll(5);
+		rollSpare(5);
 		game.roll(2);
 		
 		assertEquals(48, game.calculateScore());
@@ -71,10 +70,8 @@ public class BowlingGameTest {
 	@Test
 	public void testGameScoreWhenMultipleSpareOccur() {
 		rollPins(16,2);
-		game.roll(5);
-		game.roll(5);
-		game.roll(2);
-		game.roll(8);
+		rollSpare(5);
+		rollSpare(2);
 		game.roll(5);
 		
 		assertEquals(59, game.calculateScore());
@@ -83,11 +80,19 @@ public class BowlingGameTest {
 	@Test
 	public void testGameScoreWhenSpareAndMissOccur() {
 		rollPins(16,2);
-		game.roll(5);
-		game.roll(5);
-		game.roll(0);
-		game.roll(0);
+		rollSpare(5);
+		rollMiss();
+		rollMiss();
 		
 		assertEquals(42, game.calculateScore());
+	}
+	
+	private void rollSpare(int pins) {
+		game.roll(pins);
+		game.roll(10-pins);
+	}
+	
+	private void rollMiss() {
+		game.roll(0);
 	}
 }
