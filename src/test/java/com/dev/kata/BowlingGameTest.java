@@ -95,4 +95,14 @@ public class BowlingGameTest {
 	private void rollMiss() {
 		game.roll(0);
 	}
+	
+	@Test
+	public void testGameScoreWhenAllRollsAreSpare() {
+		for(int i=0;i<10;i++) {
+			rollSpare(5);
+		}
+		game.roll(5);
+		
+		assertEquals(150, game.calculateScore());
+	}
 }
