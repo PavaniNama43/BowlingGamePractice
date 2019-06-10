@@ -98,9 +98,7 @@ public class BowlingGameTest {
 	
 	@Test
 	public void testGameScoreWhenAllRollsAreSpare() {
-		for(int i=0;i<10;i++) {
-			rollSpare(5);
-		}
+		rollPins(20,5);
 		game.roll(5);
 		
 		assertEquals(150, game.calculateScore());
@@ -119,4 +117,10 @@ public class BowlingGameTest {
 	private void rollStrike() {
 		  game.roll(10);
 	}
+	
+	@Test
+	public void testGameScoreWhenAllRollsAreStrike() {
+		rollPins(12,10);
+	    assertEquals(300, game.calculateScore());
+	  }
 }
