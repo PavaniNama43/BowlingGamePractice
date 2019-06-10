@@ -39,4 +39,13 @@ public class BowlingGameTest {
 		}
 	}
 	
+	@Test
+	public void testGameScoreWhenRollsAreMiss() {
+		game.roll(5);
+		game.roll(0);
+		game.roll(0);
+		rollPins(17,1);
+		assertEquals(22, game.getScore());
+	}
+	
 }
