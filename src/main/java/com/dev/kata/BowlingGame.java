@@ -1,8 +1,9 @@
 package com.dev.kata;
 
 public class BowlingGame {
-	private int rolls[]= new int[20];
+	private int rolls[]= new int[21];
 	private int currentRoll=0;
+	
 	public void roll(int pins) {
 		rolls[currentRoll++]=pins;
 	}
