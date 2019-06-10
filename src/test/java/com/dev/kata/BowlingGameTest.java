@@ -59,13 +59,25 @@ public class BowlingGameTest {
 	}
 	
 	@Test
-	public void testGameScoreWhenSpareLastRoll() {
+	public void testGameScoreWhenLastRollSpare() {
 		rollPins(18,2);
 		game.roll(5);
 		game.roll(5);
 		game.roll(2);
 		
 		assertEquals(48, game.calculateScore());
+	}
+	
+	@Test
+	public void testGameScoreWhenMultipleSpareOccur() {
+		rollPins(16,2);
+		game.roll(5);
+		game.roll(5);
+		game.roll(2);
+		game.roll(8);
+		game.roll(5);
+		
+		assertEquals(59, game.calculateScore());
 	}
 	
 }
