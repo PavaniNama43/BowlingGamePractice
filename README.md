@@ -59,6 +59,3 @@ X or 10 for Strike
 | Frame 9  | 2      | -     |
 | Frame 10 | X      | 0     |
 | Bonus    | 5      | 4     |
-
-
-
