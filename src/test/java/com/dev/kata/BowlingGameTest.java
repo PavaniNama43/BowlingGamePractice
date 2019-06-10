@@ -80,4 +80,14 @@ public class BowlingGameTest {
 		assertEquals(59, game.calculateScore());
 	}
 	
+	@Test
+	public void testGameScoreWhenSpareAndMissOccur() {
+		rollPins(16,2);
+		game.roll(5);
+		game.roll(5);
+		game.roll(0);
+		game.roll(0);
+		
+		assertEquals(42, game.calculateScore());
+	}
 }
